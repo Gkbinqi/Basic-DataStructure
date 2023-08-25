@@ -1,4 +1,7 @@
 public class Stack<T> {
+    /** Since stack needn't scan through all the items in the stack,
+     * a linked list can be qualified for this job.
+     * And it doesn't seem profitable to implement this using array based list*/
     private class Node {
         public T value;
         public Node next;
@@ -27,6 +30,12 @@ public class Stack<T> {
         T popItem = sentinel.next.value;
         sentinel.next = sentinel.next.next;
         return popItem;
+    }
+    public T peek(){
+        if (size == 0){
+            return null;
+        }
+        return sentinel.next.value;
     }
     public int size() {
         return size;
