@@ -1,4 +1,4 @@
-# Basic DataStructure
+# Basic DataStructure & Algorithm
 This repo is created to store my practice code. Here I implemented some common data structures and algorithms using **Java**.
 Anyway, I hope you can have fun. GL.
 
