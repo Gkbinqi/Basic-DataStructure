@@ -1,7 +1,7 @@
-/** BST Version 1.0
+/** BST Version 1.1
  * Gktwerk */
 public class BST <T extends Comparable<T>>{
-    public class TreeNode{
+    private class TreeNode{
         private T value;
         private TreeNode leftNode;
         private TreeNode rightNode;
@@ -32,23 +32,36 @@ public class BST <T extends Comparable<T>>{
     public TreeNode insert(T value){
         return insertInside(rootNode,value);
     }
+    /**
+     *
+     * */
     private TreeNode insertInside(TreeNode node,T value){
         if(node == null){
-            node = new TreeNode(value, null,null);
-            return node;
+            return new TreeNode(value, null,null);
         }
         if(value.compareTo(node.value) > 0){
-            return insertInside(node.rightNode,value);
+            node.rightNode = insertInside(node.rightNode,value);
         }else if(value.compareTo(node.value) < 0){
-            return insertInside(node.leftNode,value);
+            node.leftNode = insertInside(node.leftNode,value);
         }
-        return null;//duplicate
+        return node;//duplicate
     }
     public T delete(T value){
         return deleteInside(rootNode,value);
     }
-
     private T deleteInside(TreeNode node, T value) {
         return null;// to be implemented...
+    }
+
+    public void print(){
+        printTree(rootNode);
+    }
+    private void printTree(TreeNode node){
+        if(node == null){
+            return;
+        }
+        printTree(node.leftNode);
+        System.out.print(node.value + " ");
+        printTree(node.rightNode);
     }
 }
