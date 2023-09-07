@@ -57,10 +57,9 @@ public class ArraySet<T> implements Iterable<T>{
     public boolean delete(T item){
         for(int i=0;i<size;i++){
             if(items[i] == item){
-                for(int j = i;j<size-1;j++){
-                    items[j] = items[j+1];
-                }
+                items[i] = items[size - 1];
                 items[size - 1] = null;
+                
                 size -=1;
                 return true;
             }
