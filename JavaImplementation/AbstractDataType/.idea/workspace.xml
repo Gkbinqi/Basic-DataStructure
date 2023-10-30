@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0fcd53b3-7844-4257-8984-e4a8cd9cdbd1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PriorityQueue/PQ.Java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CommonDataStuctureImplementation/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CommonDataStuctureImplementation/.idea/CommonDataStuctureImplementation.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CommonDataStuctureImplementation/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CommonDataStuctureImplementation/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CommonDataStuctureImplementation/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stack/Stack.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stack/Stack.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2WFwiJv8qkxQ9B94QLFfzyZcP0P" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/47949/MyThings/LearningFile/CS/FourBasicCourse/DataStructure/cs61b/cs61b_sp23/skeleton-sp23/lab08",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="AbstractDataType" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="AbstractDataType" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0fcd53b3-7844-4257-8984-e4a8cd9cdbd1" name="Changes" comment="" />
+      <created>1696341761855</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1696341761855</updated>
+      <workItem from="1696341762877" duration="69000" />
+      <workItem from="1696341839468" duration="9000" />
+      <workItem from="1696341859294" duration="103000" />
+      <workItem from="1696341975220" duration="18000" />
+      <workItem from="1696555457051" duration="25000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

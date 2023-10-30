@@ -1,18 +1,17 @@
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
-/** BSTMap Implementation
- * skeleton code from CS61b(methods to be implemented).
+/**
+ * BSTMap
+ * Java Implementation
+ * Gkbinqi 2023.10.30
  * */
-public class BSTMap <K extends Comparable<K>,V> implements Iterable<K> {
+public class BSTMap <K extends Comparable<K>,V> implements Iterable<V> {
     private class Node {
         K key;
         V value;
         Node leftNode;
         Node rightNode;
-        public Node (K key, V value) {
+        public Node (K key, V value) {//create a new node with no child
             this.key = key;
             this.value = value;
             leftNode = null;
@@ -29,12 +28,14 @@ public class BSTMap <K extends Comparable<K>,V> implements Iterable<K> {
             rightNode = toBeReplace.rightNode;
         }
     }
+
     private class sentinelNode {
         public Node rootNode;
         public sentinelNode () {
             rootNode = null;
         }
     }
+
     /** Private Instance Variables
      * We need a sentinel, or there will be many ugly exception in our code.
      * */
@@ -45,32 +46,33 @@ public class BSTMap <K extends Comparable<K>,V> implements Iterable<K> {
         sentinel = new sentinelNode();
         size = 0;
     }
+
     /**              Basic methods
      * ------------------------------------------
      * put(K key, V value)
      * Put a new value in the map
-     * Null key is unaccepted.
-     * If a key already exist, update the value.
+     * Null key is rejected.
+     * If a key already exist, it will update the value.
      * */
     public void put(K key, V value) {
         nullKeyCheck(key);
         sentinel.rootNode = putInside(key,value,sentinel.rootNode);
     }
-    private Node putInside(K key, V value, Node node){
-        if (null == node) {
+    private Node putInside(K key, V value, Node curNode){
+        if (curNode == null) {
             size += 1;
             return new Node(key, value);
         }
 
-        if (key.compareTo(node.key) > 0) {
-            node.rightNode = putInside(key, value, node.rightNode);
-        } else if (key.compareTo(node.key) < 0) {
-            node.leftNode = putInside(key, value, node.leftNode);
+        if (key.compareTo(curNode.key) > 0) {
+            curNode.rightNode = putInside(key, value, curNode.rightNode);
+        } else if (key.compareTo(curNode.key) < 0) {
+            curNode.leftNode = putInside(key, value, curNode.leftNode);
         } else {//key already exist, update the value;
-            node.value = value;
+            curNode.value = value;
         }
 
-        return node;
+        return curNode;
     }
 
     /** get(K key)
@@ -82,16 +84,16 @@ public class BSTMap <K extends Comparable<K>,V> implements Iterable<K> {
         nullKeyCheck(key);
         return getInside(key, sentinel.rootNode);
     }
-    private V getInside(K key, Node node) {
-        if (null == node) {
+    private V getInside(K key, Node curNode) {
+        if (curNode == null) {
             return null;//not found
         }
 
-        if (key.compareTo(node.key) > 0){
-            return getInside(key, node.rightNode);
-        } else if (key.compareTo(node.key) < 0) {
-            return getInside(key, node.leftNode);
-        } else return node.value;//found
+        if (key.compareTo(curNode.key) > 0){
+            return getInside(key, curNode.rightNode);
+        } else if (key.compareTo(curNode.key) < 0) {
+            return getInside(key, curNode.leftNode);
+        } else return curNode.value;//found
     }
 
     /** boolean containsKey(K key)
@@ -103,15 +105,15 @@ public class BSTMap <K extends Comparable<K>,V> implements Iterable<K> {
         nullKeyCheck(key);
         return containsKeyInside(key, sentinel.rootNode);
     }
-    private boolean containsKeyInside(K key, Node node) {
-        if (null == node) {
+    private boolean containsKeyInside(K key, Node curNode) {
+        if (curNode == null) {
             return false;
         }
 
-        if (key.compareTo(node.key) > 0) {
-            return containsKeyInside(key, node.rightNode);
-        } else if (key.compareTo(node.key) < 0) {
-            return containsKeyInside(key, node.leftNode);
+        if (key.compareTo(curNode.key) > 0) {
+            return containsKeyInside(key, curNode.rightNode);
+        } else if (key.compareTo(curNode.key) < 0) {
+            return containsKeyInside(key, curNode.leftNode);
         } else return true;
     }
 
@@ -188,6 +190,7 @@ public class BSTMap <K extends Comparable<K>,V> implements Iterable<K> {
         keySetInside(keySet, sentinel.rootNode);
         return keySet;
     }
+
     private void keySetInside(Set<K> keySet, Node node) {
         if(null != node) {
             keySetInside(keySet,node.leftNode);
@@ -204,9 +207,33 @@ public class BSTMap <K extends Comparable<K>,V> implements Iterable<K> {
         sentinel.rootNode = null;
         size = 0;
     }
-    public Iterator<K> iterator() {
-        throw new UnsupportedOperationException("Under Construction...");
+
+    /**
+     * Iterator
+     * Iterate in preOrder way.
+    * */
+    public Iterator<V> iterator() {
+        return new BSTIterator();
     }
+    private class BSTIterator implements Iterator<V> {
+        private Queue<Node> fringe;
+        public BSTIterator() {
+            fringe = new LinkedList<>();
+            fringe.add(sentinel.rootNode);
+        }
+        @Override
+        public boolean hasNext() {
+            return !fringe.isEmpty();
+        }
+        @Override
+        public V next() {
+            Node tempNode = fringe.remove();
+            if(tempNode.leftNode != null) fringe.add(tempNode.leftNode);
+            if(tempNode.rightNode != null) fringe.add(tempNode.rightNode);
+            return tempNode.value;
+        }
+    }
+
     public void printInOrder() {
         printTree(sentinel.rootNode);
     }

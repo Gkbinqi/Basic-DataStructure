@@ -1,22 +1,30 @@
+/**
+ * Gktwerk 2023
+ *
+ * Since we just care about `push` and `pop` this two operation,
+ * a linked list is qualified for this job.
+ * And it doesn't seem profitable to implement this using other data structure.
+ * */
 public class Stack<T> {
-    /** Since stack needn't scan through all the items in the stack,
-     * a linked list can be qualified for this job.
-     * And it doesn't seem profitable to implement this using array based list*/
     private class Node {
-        public T value;
+        public T data;
         public Node next;
         public Node(T item, Node next) {
-            value = item;
+            data = item;
             this.next = next;
         }
     }
+
     private final Node sentinel;
     private int size;
+
     public Stack() {
         sentinel = new Node(null, null);
         size = 0;
     }
-    /** As a stack, we will only modify the first node that sentinel points to*/
+    /** push(T item)
+     *  it will add a new item into the stack.
+     * */
     public void push(T item) {
         size += 1;
         sentinel.next = new Node(item, sentinel.next);
@@ -27,7 +35,7 @@ public class Stack<T> {
         }
         size -= 1;
 
-        T popItem = sentinel.next.value;
+        T popItem = sentinel.next.data;
         sentinel.next = sentinel.next.next;
         return popItem;
     }
@@ -35,7 +43,7 @@ public class Stack<T> {
         if (size == 0){
             return null;
         }
-        return sentinel.next.value;
+        return sentinel.next.data;
     }
     public int size() {
         return size;
